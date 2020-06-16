@@ -96,7 +96,7 @@ ul {
 }
 
 // ----------------- Navigation button
-.nav__toggle-button {
+.nav__toggle-btn {
   all: unset;
   position: relative;
   padding: 1.5rem 0.8rem;
@@ -105,6 +105,7 @@ ul {
   z-index: 10;
 }
 
+// .nav__hamburger
 .nav__hamburger {
   width: 25px;
   height: 2px;
@@ -190,7 +191,7 @@ ul {
   }
 }
 
-// ---------------------- Navigation Sidebar for phone landscape and up
+// ---------- Navigation Sidebar for phone landscape and up
 .nav__sidebar {
   @include for-tablet-portrait-up() {
     position: absolute;
@@ -221,8 +222,10 @@ ul {
   border: 1px solid $highlight-color;
   color: $highlight-color;
   z-index: 10;
+  display: initial;
 
   &.active {
+    opacity: 0;
   }
 }
 
@@ -269,12 +272,43 @@ ul {
     transition-delay: 0.2s;
   }
 
-  &.active a:nth-child(2) {
+  &.active a:nth-child(3) {
     transition-delay: 0.4s;
   }
 
   &.active a:last-child {
     transition-delay: 0.6s;
+  }
+
+  //------- reservation slider close button
+  .reserve__close-btn {
+    all: unset;
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    .reserve__close-x {
+      width: 25px;
+      height: 2px;
+      background-color: #fff;
+      position: relative;
+      transform: rotate(45deg);
+      transition: transform 100ms ease-out;
+
+      &::after {
+        content: "";
+        width: inherit;
+        height: inherit;
+        background-color: inherit;
+        position: absolute;
+        transform: rotate(-90deg);
+      }
+    }
   }
 }
 

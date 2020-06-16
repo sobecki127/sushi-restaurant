@@ -50,7 +50,7 @@ ul {
   }
 }
 
-.nav__toggle-button {
+.nav__toggle-btn {
   all: unset;
   position: relative;
   padding: 1.5rem 0.8rem;
@@ -207,6 +207,11 @@ ul {
   border: 1px solid #ebebd3;
   color: #ebebd3;
   z-index: 10;
+  display: initial;
+}
+
+.reserve__btn.active {
+  opacity: 0;
 }
 
 .reserve__slider {
@@ -273,7 +278,7 @@ ul {
           transition-delay: 0.2s;
 }
 
-.reserve__slider.active a:nth-child(2) {
+.reserve__slider.active a:nth-child(3) {
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
 }
@@ -281,6 +286,41 @@ ul {
 .reserve__slider.active a:last-child {
   -webkit-transition-delay: 0.6s;
           transition-delay: 0.6s;
+}
+
+.reserve__slider .reserve__close-btn {
+  all: unset;
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  display: none;
+}
+
+.reserve__slider .reserve__close-btn.active {
+  display: block;
+}
+
+.reserve__slider .reserve__close-btn .reserve__close-x {
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  position: relative;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: -webkit-transform 100ms ease-out;
+  transition: -webkit-transform 100ms ease-out;
+  transition: transform 100ms ease-out;
+  transition: transform 100ms ease-out, -webkit-transform 100ms ease-out;
+}
+
+.reserve__slider .reserve__close-btn .reserve__close-x::after {
+  content: "";
+  width: inherit;
+  height: inherit;
+  background-color: inherit;
+  position: absolute;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 
 .place-holder {
