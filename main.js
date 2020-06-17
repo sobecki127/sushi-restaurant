@@ -1,23 +1,51 @@
 $(document).ready(function () {
-  // Navigation
-  $(".nav__toggle-btn").click(function () {
-    $(".nav__slider").toggleClass("active", 500);
-    $(".nav__sidebar").toggleClass("active", 500);
-    $(".nav__hamburger").toggleClass("active", 500);
-  });
+  let clickHandler = (obj) => {
+    let { button, elements, delay, open } = obj;
+    button.on("click", () => {
+      for (let el of elements) {
+        setTimeout(() => {
+          el.item.toggleClass("active");
+        }, el.delay);
+      }
+    });
+  };
 
-  // Reservations open
-  $(".reserve__btn").click(function () {
-    $(".reserve_btn").toggleClass("active");
-    $(".reserve__close-btn").toggleClass("active");
-    $(".reserve__slider").toggleClass("active", 500);
-    $(".reserve__btn").toggleClass("active", 500);
-  });
+  let navObj = {
+    button: $(".nav__toggle-btn"),
+    elements: [
+      {
+        item: $(".nav__hamburger"),
+        delay: 0,
+      },
+      {
+        item: $(".nav__slider"),
+        delay: 500,
+      },
+      {
+        item: $(".nav__sidebar"),
+        delay: 500,
+      },
+    ],
+  };
 
-  $(".reserve__close-btn").click(function () {
-    $(".reserve_btn").toggleClass("active");
-    $(".reserve__close-btn").toggleClass("active");
-    $(".reserve__slider").toggleClass("active", 500);
-    $(".reserve__btn").toggleClass("active", 500);
-  });
+  let reserveObj = {
+    button: $(".reserve__btn"),
+    elements: [
+      {
+        item: $(".reserve__btn"),
+        delay: 0,
+      },
+      {
+        item: $(".reserve__btn--close"),
+        delay: 0,
+      },
+      {
+        item: $(".reserve__slider"),
+        delay: 0,
+      },
+    ],
+  };
+
+  clickHandler(reserveObj);
+  clickHandler(navObj);
 });
