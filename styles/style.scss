@@ -141,7 +141,6 @@ ul {
 }
 
 //-------------------------- Navigation slide out
-// check all ease transitions
 .nav__slider {
   position: absolute;
   top: 0;
@@ -155,13 +154,9 @@ ul {
   background-color: $background-color;
   overflow: hidden;
   transition: width 0.3s ease-in;
-  //
-
-  //   transition-delay: 0;
 
   &.active {
     width: 100%;
-    // transition-delay: 1s;
   }
 
   a {
@@ -173,24 +168,6 @@ ul {
     text-decoration: none;
     transform: translateX(-100px);
     transition: transform 0.5s ease-in;
-
-    //
-    // transition-property: opacity, transform;
-    // transition-duration: 0.5s;
-    // transition-timing-function: ease-out;
-  }
-
-  a:first-child {
-    transition-delay: 1.2s;
-  }
-
-  a:nth-child(2) {
-    transition-delay: 1.4s;
-    color: red;
-  }
-
-  a:last-child {
-    transition-delay: 1.6s;
   }
 
   &.active a {
@@ -220,15 +197,17 @@ ul {
     position: absolute;
     top: 0;
     left: 0;
+    width: 3.5rem;
     height: 100vh;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     background-color: $background-color;
+    transition: width 0.3s ease-in;
   }
   &.active {
     @include for-tablet-portrait-up() {
-      width: 80vw;
+      width: 80%;
     }
   }
 }
@@ -236,19 +215,33 @@ ul {
 // ---------------- Reservation button
 .reserve__btn {
   all: unset;
+  width: 5rem;
   padding: 0.45rem 0.5rem;
   text-transform: uppercase;
+  text-align: center;
   //   find a better font for this
   font-family: "Roboto";
   font-weight: 800;
   cursor: pointer;
   border: 1px solid $highlight-color;
   color: $highlight-color;
-  z-index: 10;
+  z-index: 110;
   display: initial;
 
-  &.active {
-    opacity: 0;
+  span:first-child {
+    display: inline-block;
+  }
+
+  span:last-child {
+    display: none;
+  }
+
+  &.active span:first-child {
+    display: none;
+  }
+
+  &.active span:last-child {
+    display: inline-block;
   }
 }
 
@@ -280,7 +273,9 @@ ul {
     font-size: 3em;
     padding: 1rem;
     transform: translateX(100px);
-    transition: transform 0.5s ease-in;
+    transition-property: opacity, transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
   }
 
   &.active a {

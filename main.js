@@ -1,7 +1,31 @@
 $(document).ready(function () {
-  let clickHandler = (obj) => {
-    let { button, elements, delay, open } = obj;
+  let clear = (obj) => {
+    let { elements } = obj;
+    for (let el of elements) {
+      el.item.removeClass("active");
+    }
+  };
+
+  // let toggleText = (el, text) => {
+  //   el.on("click", () => {
+  //     let temp = el.text();
+  //     console.log(temp);
+  //     el.empty().append(temp);
+  //   });
+  // };
+
+  // let home = "Home";
+  // toggleText($(".reserve__btn"), home);
+
+  // $(".reserve__btn").on("click", function () {
+  //   $(".reserve__btn").html("test");
+  //   console.log("test");
+  // });
+
+  let clickHandler = (current, prev) => {
+    let { button, elements, delay } = current;
     button.on("click", () => {
+      clear(prev);
       for (let el of elements) {
         setTimeout(() => {
           el.item.toggleClass("active");
@@ -19,11 +43,11 @@ $(document).ready(function () {
       },
       {
         item: $(".nav__slider"),
-        delay: 500,
+        delay: 200,
       },
       {
         item: $(".nav__sidebar"),
-        delay: 500,
+        delay: 200,
       },
     ],
   };
@@ -33,19 +57,20 @@ $(document).ready(function () {
     elements: [
       {
         item: $(".reserve__btn"),
-        delay: 0,
+        text: "Home",
+        delay: 200,
       },
       {
         item: $(".reserve__btn--close"),
-        delay: 0,
+        delay: 200,
       },
       {
         item: $(".reserve__slider"),
-        delay: 0,
+        delay: 200,
       },
     ],
   };
 
-  clickHandler(reserveObj);
-  clickHandler(navObj);
+  clickHandler(reserveObj, navObj);
+  clickHandler(navObj, reserveObj);
 });

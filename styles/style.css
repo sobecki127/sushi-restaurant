@@ -143,22 +143,6 @@ ul {
   transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
 }
 
-.nav__slider a:first-child {
-  -webkit-transition-delay: 1.2s;
-          transition-delay: 1.2s;
-}
-
-.nav__slider a:nth-child(2) {
-  -webkit-transition-delay: 1.4s;
-          transition-delay: 1.4s;
-  color: red;
-}
-
-.nav__slider a:last-child {
-  -webkit-transition-delay: 1.6s;
-          transition-delay: 1.6s;
-}
-
 .nav__slider.active a {
   opacity: 1;
   -webkit-transform: translateX(0);
@@ -193,6 +177,7 @@ ul {
     position: absolute;
     top: 0;
     left: 0;
+    width: 3.5rem;
     height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -204,30 +189,46 @@ ul {
         -ms-flex-align: center;
             align-items: center;
     background-color: rgba(0, 0, 0, 0.9);
+    -webkit-transition: width 0.3s ease-in;
+    transition: width 0.3s ease-in;
   }
 }
 
 @media (min-width: 600px) {
   .nav__sidebar.active {
-    width: 80vw;
+    width: 80%;
   }
 }
 
 .reserve__btn {
   all: unset;
+  width: 5rem;
   padding: 0.45rem 0.5rem;
   text-transform: uppercase;
+  text-align: center;
   font-family: "Roboto";
   font-weight: 800;
   cursor: pointer;
   border: 1px solid #ebebd3;
   color: #ebebd3;
-  z-index: 10;
+  z-index: 110;
   display: initial;
 }
 
-.reserve__btn.active {
-  opacity: 0;
+.reserve__btn span:first-child {
+  display: inline-block;
+}
+
+.reserve__btn span:last-child {
+  display: none;
+}
+
+.reserve__btn.active span:first-child {
+  display: none;
+}
+
+.reserve__btn.active span:last-child {
+  display: inline-block;
 }
 
 .reserve__slider {
@@ -269,10 +270,14 @@ ul {
   padding: 1rem;
   -webkit-transform: translateX(100px);
           transform: translateX(100px);
-  -webkit-transition: -webkit-transform 0.5s ease-in;
-  transition: -webkit-transform 0.5s ease-in;
-  transition: transform 0.5s ease-in;
-  transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
 }
 
 .reserve__slider.active a {
