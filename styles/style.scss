@@ -68,6 +68,14 @@ body {
   padding: 0;
   line-height: 1.5;
   background-color: #333;
+
+  @include for-phone-only() {
+    margin-top: 5rem;
+  }
+
+  @include for-tablet-portrait-up() {
+    margin-left: 3.5rem;
+  }
 }
 
 ul {
@@ -84,7 +92,8 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: $background-color;
+  //   background-color: $background-color;
+  background-color: #000;
   height: 5rem;
   padding: 1rem;
   //   z-index: 10;
@@ -167,7 +176,7 @@ ul {
     color: $highlight-color;
     text-decoration: none;
     transform: translateX(-100px);
-    transition: transform 0.5s ease-in;
+    transition: transform 0.3s ease-in;
   }
 
   &.active a {
@@ -250,6 +259,7 @@ ul {
   position: absolute;
   top: 0;
   right: 0;
+  bottom: 0;
   width: 0;
   height: 100vh;
   display: flex;
@@ -273,9 +283,9 @@ ul {
     font-size: 3em;
     padding: 1rem;
     transform: translateX(100px);
-    transition-property: opacity, transform;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-out;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in;
   }
 
   &.active a {
@@ -299,40 +309,45 @@ ul {
   }
 
   //------- reservation slider close button
-  .reserve__btn--close {
-    all: unset;
-    position: absolute;
-    top: 3rem;
-    right: 3rem;
-    display: none;
+  //   .reserve__btn--close {
+  //     all: unset;
+  //     position: absolute;
+  //     top: 3rem;
+  //     right: 3rem;
+  //     display: none;
 
-    &.active {
-      display: block;
-    }
+  //     &.active {
+  //       display: block;
+  //     }
 
-    .reserve__close-x {
-      width: 26px;
-      height: 2px;
-      background-color: #fff;
-      position: relative;
-      transform: rotate(45deg);
-      transition: transform 100ms ease-out;
+  //     .reserve__close-x {
+  //       width: 26px;
+  //       height: 2px;
+  //       background-color: #fff;
+  //       position: relative;
+  //       transform: rotate(45deg);
+  //       transition: transform 100ms ease-out;
 
-      &::after {
-        content: "";
-        width: inherit;
-        height: inherit;
-        background-color: inherit;
-        position: absolute;
-        transform: rotate(-90deg);
-      }
-    }
-  }
+  //       &::after {
+  //         content: "";
+  //         width: inherit;
+  //         height: inherit;
+  //         background-color: inherit;
+  //         position: absolute;
+  //         transform: rotate(-90deg);
+  //       }
+  //     }
+  //   }
 }
 
 // ----------- Sections not shown on mobile portrait
 .place-holder {
-  display: none;
+  //   display: none;
+
+  img {
+    max-width: 100%;
+    height: 100%;
+  }
 }
 
 footer {

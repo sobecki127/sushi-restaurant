@@ -6,22 +6,6 @@ $(document).ready(function () {
     }
   };
 
-  // let toggleText = (el, text) => {
-  //   el.on("click", () => {
-  //     let temp = el.text();
-  //     console.log(temp);
-  //     el.empty().append(temp);
-  //   });
-  // };
-
-  // let home = "Home";
-  // toggleText($(".reserve__btn"), home);
-
-  // $(".reserve__btn").on("click", function () {
-  //   $(".reserve__btn").html("test");
-  //   console.log("test");
-  // });
-
   let clickHandler = (current, prev) => {
     let { button, elements, delay } = current;
     button.on("click", () => {
