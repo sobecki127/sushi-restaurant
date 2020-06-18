@@ -1,28 +1,5 @@
 $background-color: rgba(0, 0, 0, 0.9);
 $highlight-color: #ebebd3;
-$shadow: 2px 2px black;
-$text-color: #ebebd3;
-
-// -------------------- Utilities
-@mixin btn($width) {
-  width: $width;
-  height: 100%;
-  background-color: transparent;
-  color: $text-color;
-  border: 1px solid $highlight-color;
-  font-weight: 200;
-  padding: 1rem;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  box-shadow: $shadow;
-  text-decoration: none;
-  text-align: center;
-  text-transform: uppercase;
-  cursor: pointer;
-}
 
 // --------------------- Media Queries
 @mixin for-phone-only {
@@ -66,13 +43,9 @@ html {
 body {
   margin: 0;
   padding: 0;
-  //   line-height: 5.5;
-  //   line-height: 0.7;
-  //   background-color: #333;
   line-height: 1.5;
 
   @include for-phone-only() {
-    // margin-top: 5rem;
     margin-top: 14vh;
   }
 
@@ -95,12 +68,10 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  //   background-color: $background-color;
   background-color: #000;
-  //   height: 5rem;
   height: 14vh;
   padding: 1rem;
-  //   z-index: 10;
+  z-index: 10;
 
   @include for-tablet-portrait-up() {
     justify-content: flex-end;
@@ -311,57 +282,39 @@ ul {
   &.active a:last-child {
     transition-delay: 0.6s;
   }
-
-  //------- reservation slider close button
-  //   .reserve__btn--close {
-  //     all: unset;
-  //     position: absolute;
-  //     top: 3rem;
-  //     right: 3rem;
-  //     display: none;
-
-  //     &.active {
-  //       display: block;
-  //     }
-
-  //     .reserve__close-x {
-  //       width: 26px;
-  //       height: 2px;
-  //       background-color: #fff;
-  //       position: relative;
-  //       transform: rotate(45deg);
-  //       transition: transform 100ms ease-out;
-
-  //       &::after {
-  //         content: "";
-  //         width: inherit;
-  //         height: inherit;
-  //         background-color: inherit;
-  //         position: absolute;
-  //         transform: rotate(-90deg);
-  //       }
-  //     }
-  //   }
 }
 
-// ----------- Sections not shown on mobile portrait?
-.place-holder {
-  img {
-    width: 100%;
-    height: 60%;
-    display: block;
-  }
-}
 // ---------------------------- #home
 #home {
   height: 86vh;
-
-  img {
-    height: 100%;
-  }
+  background: url("https://via.placeholder.com/1920x1080") no-repeat center
+    center;
+  background-size: cover;
 }
 
 #menu {
+  height: 86vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #333;
+
+  button {
+    all: unset;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding: 0.5rem 0.75rem;
+    text-transform: uppercase;
+    text-align: center;
+    //   find a better font for this
+    font-family: "Roboto";
+    font-weight: 200;
+    cursor: pointer;
+    border: 1px solid $highlight-color;
+    color: $highlight-color;
+    z-index: 2;
+    margin-bottom: 4rem;
+  }
 }
 
 //--------------------------- #location
@@ -402,9 +355,23 @@ ul {
     }
 
     span {
+      font-size: 1rem;
       font-style: italic;
     }
   }
+}
+
+#gallery {
+  height: 86vh;
+  background: url("https://via.placeholder.com/1920x1080") no-repeat center
+    center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+
+#contact {
+  min-height: 86vh;
 }
 
 footer {
@@ -445,7 +412,6 @@ footer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    // flex-direction: row;
   }
 
   a {
@@ -453,6 +419,5 @@ footer {
     text-decoration: none;
     display: inline-block;
     font-style: italic;
-    // display: block;
   }
 }

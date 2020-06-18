@@ -50,6 +50,7 @@ ul {
   background-color: #000;
   height: 14vh;
   padding: 1rem;
+  z-index: 10;
 }
 
 @media (min-width: 600px) {
@@ -321,18 +322,40 @@ ul {
           transition-delay: 0.6s;
 }
 
-.place-holder img {
-  width: 100%;
-  height: 60%;
-  display: block;
-}
-
 #home {
   height: 86vh;
+  background: url("https://via.placeholder.com/1920x1080") no-repeat center center;
+  background-size: cover;
 }
 
-#home img {
-  height: 100%;
+#menu {
+  height: 86vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  background-color: #333;
+}
+
+#menu button {
+  all: unset;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  padding: 0.5rem 0.75rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Roboto";
+  font-weight: 200;
+  cursor: pointer;
+  border: 1px solid #ebebd3;
+  color: #ebebd3;
+  z-index: 2;
+  margin-bottom: 4rem;
 }
 
 #location iframe {
@@ -381,7 +404,24 @@ ul {
 }
 
 #location section span {
+  font-size: 1rem;
   font-style: italic;
+}
+
+#gallery {
+  height: 86vh;
+  background: url("https://via.placeholder.com/1920x1080") no-repeat center center;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#contact {
+  min-height: 86vh;
 }
 
 footer {
