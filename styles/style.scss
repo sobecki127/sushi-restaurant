@@ -66,8 +66,10 @@ html {
 body {
   margin: 0;
   padding: 0;
+  //   line-height: 5.5;
+  //   line-height: 0.7;
+  //   background-color: #333;
   line-height: 1.5;
-  background-color: #333;
 
   @include for-phone-only() {
     margin-top: 5rem;
@@ -340,13 +342,63 @@ ul {
   //   }
 }
 
-// ----------- Sections not shown on mobile portrait
+// ----------- Sections not shown on mobile portrait?
 .place-holder {
-  //   display: none;
+  img {
+    width: 100%;
+    height: 60%;
+    display: block;
+  }
+}
+// ---------------------------- #home
+#home {
+  height: 100vh;
 
   img {
-    max-width: 100%;
     height: 100%;
+  }
+}
+
+//--------------------------- #location
+#location {
+  iframe {
+    height: 40vh;
+    display: block;
+  }
+
+  h2 {
+    letter-spacing: 0.3rem;
+    font-weight: 900;
+  }
+
+  section {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: $highlight-color;
+    background-color: #000;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    letter-spacing: 2px;
+
+    a {
+      color: $highlight-color;
+      text-decoration: none;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      margin-bottom: 0;
+    }
+
+    span {
+      font-style: italic;
+    }
   }
 }
 
