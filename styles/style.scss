@@ -1,7 +1,7 @@
 $background-color: rgba(0, 0, 0, 0.9);
 $highlight-color: #ebebd3;
 
-// --------------------- Media Queries
+// ------------------------------- Media Queries
 @mixin for-phone-only {
   // @media (max-width: 599px) {
   @media (max-width: 460px) {
@@ -29,7 +29,7 @@ $highlight-color: #ebebd3;
   }
 }
 
-// -------------------- DOM Reset
+// --------------------------------- DOM Reset
 html {
   box-sizing: border-box;
 }
@@ -79,7 +79,7 @@ ul {
   }
 }
 
-// ----------------- Navigation button
+// ----------------------------- Navigation button
 .nav__toggle-btn {
   all: unset;
   position: relative;
@@ -124,7 +124,7 @@ ul {
   }
 }
 
-//-------------------------- Navigation slide out
+//----------------------------- Navigation slide out
 .nav__slider {
   position: absolute;
   top: 0;
@@ -175,7 +175,7 @@ ul {
   }
 }
 
-// ---------- Navigation Sidebar for phone landscape and up
+// ----------------- Navigation Sidebar for phone landscape and up
 .nav__sidebar {
   @include for-tablet-portrait-up() {
     position: absolute;
@@ -196,7 +196,7 @@ ul {
   }
 }
 
-// ---------------- Reservation button
+// ----------------------------- Reservation button
 .reserve__btn {
   all: unset;
   width: 5rem;
@@ -229,7 +229,7 @@ ul {
   }
 }
 
-// ------------------- Reservations slider
+// ---------------------------- Reservations slider
 .reserve__slider {
   position: absolute;
   top: 0;
@@ -284,14 +284,14 @@ ul {
   }
 }
 
-// ---------------------------- #home
+// ----------------------------------- #home
 #home {
   height: 86vh;
   background: url("https://via.placeholder.com/1920x1080") no-repeat center
     center;
   background-size: cover;
 }
-
+// ----------------------------------- #menu
 #menu {
   height: 86vh;
   display: flex;
@@ -317,7 +317,7 @@ ul {
   }
 }
 
-//--------------------------- #location
+//---------------------------------- #location
 #location {
   iframe {
     height: 40vh;
@@ -360,7 +360,7 @@ ul {
     }
   }
 }
-
+// --------------------------------- #gallery
 #gallery {
   height: 86vh;
   background: url("https://via.placeholder.com/1920x1080") no-repeat center
@@ -369,11 +369,119 @@ ul {
   display: flex;
   justify-content: center;
 }
-
+// ------------------------------- #contact / form
+// todo - vars, cleanup, checkbox
 #contact {
-  min-height: 86vh;
+  // min-height: 86vh;
+  // min-height: 120vh;
+  background-color: #e1e1e1;
+  height: 100%;
+  padding: 4rem 0 1rem 0;
+
+  h2 {
+    text-align: center;
+    margin: 0;
+    font-weight: 200;
+    letter-spacing: 1px;
+    // padding-top: 3rem;
+    text-transform: uppercase;
+    color: #333;
+  }
+
+  form {
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 2rem;
+  }
+
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    outline: none;
+    background-color: unset;
+
+    &[type="checkbox"] {
+      // display: unset;
+      width: unset;
+      // border: 1px solid red;
+      margin-right: 0.75rem;
+    }
+  }
+
+  textarea {
+    // test performance vs a repeating image
+    // https://stackoverflow.com/questions/9468153/textarea-with-horizontal-rule
+    background-attachment: local;
+    background-image: linear-gradient(to right, #e1e1e1 10px, transparent 10px),
+      linear-gradient(to left, #e1e1e1 10px, transparent 10px),
+      repeating-linear-gradient(
+        // white,
+          #e1e1e1,
+        // white 30px,
+          #e1e1e1 30px,
+        // #ccc 30px,
+          #000 30px,
+        //  #ccc 31px,
+          #000 31px,
+        // white 31px
+          #e1e1e1 31px
+      );
+    line-height: 31px;
+    padding: 8px 10px;
+    resize: vertical;
+
+    // -webkit-writing-mode: horizontal-tb !important;
+    // text-rendering: auto;
+    // letter-spacing: normal;
+    // word-spacing: normal;
+    // text-indent: 0px;
+    // text-shadow: none;
+    // text-align: start;
+    // -webkit-rtl-ordering: logical;
+    // cursor: text;
+    // white-space: pre-wrap;
+    // overflow-wrap: break-word;
+    // font: 400 13.3333px Arial;
+  }
+
+  .signup {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: flex-start;
+    border: none;
+  }
+
+  div {
+    border-bottom: 1px solid #333;
+    // width: 45%;
+    text-align: center;
+  }
+
+  button {
+    all: unset;
+    justify-self: center;
+    width: 10rem;
+    margin-top: 2rem;
+    padding: 0.45rem 0rem;
+    text-transform: uppercase;
+    text-align: center;
+    //   find a better font for this
+    font-family: "Roboto";
+    font-weight: 100;
+    cursor: pointer;
+    border: 1px solid #333;
+    color: #333;
+    z-index: 110;
+    display: initial;
+  }
 }
 
+// ---------------------------------- #footer
 footer {
   background-color: #464646;
   color: $highlight-color;

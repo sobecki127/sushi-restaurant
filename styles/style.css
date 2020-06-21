@@ -421,7 +421,86 @@ ul {
 }
 
 #contact {
-  min-height: 86vh;
+  background-color: #e1e1e1;
+  height: 100%;
+  padding: 4rem 0 1rem 0;
+}
+
+#contact h2 {
+  text-align: center;
+  margin: 0;
+  font-weight: 200;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #333;
+}
+
+#contact form {
+  margin: 2rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+#contact input,
+#contact textarea {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  outline: none;
+  background-color: unset;
+}
+
+#contact input[type="checkbox"],
+#contact textarea[type="checkbox"] {
+  width: unset;
+  margin-right: 0.75rem;
+}
+
+#contact textarea {
+  background-attachment: local;
+  background-image: linear-gradient(to right, #e1e1e1 10px, transparent 10px), linear-gradient(to left, #e1e1e1 10px, transparent 10px), repeating-linear-gradient(#e1e1e1, #e1e1e1 30px, #000 30px, #000 31px, #e1e1e1 31px);
+  line-height: 31px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+#contact .signup {
+  font-size: 0.9rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border: none;
+}
+
+#contact div {
+  border-bottom: 1px solid #333;
+  text-align: center;
+}
+
+#contact button {
+  all: unset;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  width: 10rem;
+  margin-top: 2rem;
+  padding: 0.45rem 0rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Roboto";
+  font-weight: 100;
+  cursor: pointer;
+  border: 1px solid #333;
+  color: #333;
+  z-index: 110;
+  display: initial;
 }
 
 footer {

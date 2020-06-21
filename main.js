@@ -1,6 +1,7 @@
 $(document).ready(function () {
   // ================ test ================
   // not lining up properly
+  // maybe because of vh use
   // https://stackoverflow.com/questions/7717527/smooth-scrolling-when-clicking-an-anchor-link
   $(document).on("click", 'a[href^="#"]', function (event) {
     event.preventDefault();
