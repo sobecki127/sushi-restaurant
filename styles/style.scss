@@ -136,7 +136,7 @@ ul {
   justify-content: center;
   align-items: center;
   background-color: $background-color;
-  overflow: hidden;
+  // overflow: none;
   transition: width 0.3s ease-in;
 
   &.active {
@@ -230,57 +230,32 @@ ul {
 }
 
 // ---------------------------- Reservations slider
+// issue with page scrolling behind both sliders
+.reserve__container {
+  height: auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 3rem;
+  text-align: center;
+}
+
 .reserve__slider {
+  color: $highlight-color;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   width: 0;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: $background-color;
-  overflow: hidden;
-  transition: width 0.3s ease-in;
+  overflow: auto;
+  transition: width 1.3s ease-in;
 
   &.active {
     width: 100%;
-  }
-
-  & a {
-    display: block;
-    color: $highlight-color;
-    text-align: center;
-    text-decoration: none;
-    opacity: 0;
-    font-size: 3em;
-    padding: 1rem;
-    transform: translateX(100px);
-    transition-property: transform;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in;
-  }
-
-  &.active a {
-    opacity: 1;
-    transform: translateX(0);
-    transition-property: opacity, transform;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-out;
-  }
-
-  &.active a:nth-child(2) {
-    transition-delay: 0.2s;
-  }
-
-  &.active a:nth-child(3) {
-    transition-delay: 0.4s;
-  }
-
-  &.active a:last-child {
-    transition-delay: 0.6s;
   }
 }
 
