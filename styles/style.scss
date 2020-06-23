@@ -52,6 +52,11 @@ body {
   @include for-tablet-portrait-up() {
     margin-left: 3.5rem;
   }
+
+  // look into best practice for this
+  &.active {
+    overflow: hidden;
+  }
 }
 
 ul {
@@ -167,11 +172,15 @@ ul {
   }
 
   &.active a:nth-child(2) {
+    transition-delay: 0.3s;
+  }
+
+  &.active a:nth-child(3) {
     transition-delay: 0.4s;
   }
 
   &.active a:last-child {
-    transition-delay: 0.6s;
+    transition-delay: 0.5s;
   }
 }
 
@@ -252,7 +261,7 @@ ul {
   height: 100vh;
   background-color: $background-color;
   overflow: auto;
-  transition: width 1.3s ease-in;
+  transition: width 0.3s ease-in;
 
   &.active {
     width: 100%;
@@ -337,18 +346,10 @@ ul {
 }
 // --------------------------------- #gallery
 #gallery {
-  // height: 86vh;
-  // background: url("https://via.placeholder.com/1920x1080") no-repeat center
-  //   center;
-  // background-size: cover;
-  // display: flex;
-  // justify-content: center;
-
   .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
   }
 
   .slider-wrapper {

@@ -47,6 +47,10 @@ $(document).ready(function () {
     button: $(".nav__toggle-btn"),
     elements: [
       {
+        item: $("body"),
+        delay: 0,
+      },
+      {
         item: $(".nav__hamburger"),
         delay: 0,
       },
