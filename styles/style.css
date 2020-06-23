@@ -366,16 +366,69 @@ ul {
   font-style: italic;
 }
 
-#gallery {
-  height: 86vh;
-  background: url("https://via.placeholder.com/1920x1080") no-repeat center center;
-  background-size: cover;
+#gallery .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80vh;
+}
+
+#gallery .slider-wrapper {
+  width: 600px;
+  height: 300px;
+  overflow: hidden;
+}
+
+#gallery .inner-wrapper {
+  width: 500%;
+  height: 100%;
+  position: relative;
+  left: -100%;
+}
+
+#gallery .slide {
+  width: calc(100% / 5);
+  height: 100%;
+  float: left;
+  font-size: 100px;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#gallery .button {
+  width: 30px;
+  height: 30px;
+  border-top: 2px solid #000;
+  position: absolute;
+  cursor: pointer;
+}
+
+#gallery .prev {
+  border-left: 2px solid #000;
+  left: 10%;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+#gallery .next {
+  border-right: 2px solid #000;
+  right: 10%;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 #contact {

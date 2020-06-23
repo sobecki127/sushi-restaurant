@@ -337,13 +337,65 @@ ul {
 }
 // --------------------------------- #gallery
 #gallery {
-  height: 86vh;
-  background: url("https://via.placeholder.com/1920x1080") no-repeat center
-    center;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
+  // height: 86vh;
+  // background: url("https://via.placeholder.com/1920x1080") no-repeat center
+  //   center;
+  // background-size: cover;
+  // display: flex;
+  // justify-content: center;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+
+  .slider-wrapper {
+    width: 600px;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .inner-wrapper {
+    width: 500%;
+    height: 100%;
+    position: relative;
+    left: -100%;
+  }
+
+  .slide {
+    width: calc(100% / 5);
+    height: 100%;
+    float: left;
+    font-size: 100px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button {
+    width: 30px;
+    height: 30px;
+    border-top: 2px solid #000;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  .prev {
+    border-left: 2px solid #000;
+    left: 10%;
+    transform: rotate(-45deg);
+  }
+
+  .next {
+    border-right: 2px solid #000;
+    right: 10%;
+    transform: rotate(45deg);
+  }
 }
+
 // ------------------------------- #contact / form
 // todo - vars, cleanup, checkbox
 #contact {

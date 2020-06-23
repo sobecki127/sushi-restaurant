@@ -79,11 +79,29 @@ $(document).ready(function () {
     ],
   };
 
-  //
   clickHandler(reserveObj, navObj);
   clickHandler(navObj, reserveObj);
 
-  // fullscreen slider
-  // https://www.jqueryscript.net/animation/touch-fullscreen-scrolling.html
-  // $("#fullpage").fullpage();
+  // --------------------------------- gallery
+
+  $(function () {
+    let inWrap = $(".inner-wrapper");
+    $(".inner-wrapper .slide:last-child").prependTo(".inner-wrapper ");
+
+    $(".prev").on("click", function () {
+      inWrap.animate({ left: "0%" }, 300, function () {
+        inWrap.css("left", "-100%");
+
+        $(".slide").first().before($(".slide").last());
+      });
+    });
+
+    $(".next").on("click", function () {
+      inWrap.animate({ left: "-200%" }, 300, function () {
+        inWrap.css("left", "-100%");
+
+        $(".slide").last().after($(".slide").first());
+      });
+    });
+  });
 });
