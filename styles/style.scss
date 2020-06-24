@@ -1,5 +1,9 @@
-$background-color: rgba(0, 0, 0, 0.9);
+// 1) Fonts
+$dark: #000;
+$form-color: #e1e1e1;
+$background-color: #333;
 $highlight-color: #ebebd3;
+$ease-out: transform 100ms ease-out;
 
 // ------------------------------- Media Queries
 @mixin for-phone-only {
@@ -73,10 +77,11 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #000;
+  // background-color: #000;
+  background-color: $background-color;
   height: 14vh;
   padding: 1rem;
-  z-index: 10;
+  z-index: 5;
 
   @include for-tablet-portrait-up() {
     justify-content: flex-end;
@@ -91,14 +96,14 @@ ul {
   padding: 1.5rem 0.8rem;
   margin-left: 0.5rem;
   cursor: pointer;
-  z-index: 10;
+  z-index: 15;
 }
 
 // .nav__hamburger
 .nav__hamburger {
   width: 25px;
   height: 2px;
-  background-color: #fff;
+  background-color: $highlight-color;
   position: relative;
   transition: transform 100ms ease-out;
 
@@ -141,7 +146,6 @@ ul {
   justify-content: center;
   align-items: center;
   background-color: $background-color;
-  // overflow: none;
   transition: width 0.3s ease-in;
 
   &.active {
@@ -149,22 +153,21 @@ ul {
   }
 
   a {
-    display: block;
+    display: inline-block;
     opacity: 0;
     font-size: 3em;
     padding: 1rem;
     color: $highlight-color;
     text-decoration: none;
     transform: translateX(-100px);
-    transition: transform 0.3s ease-in;
+    transition-property: opacity, transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
   }
 
   &.active a {
     opacity: 1;
     transform: translateX(0);
-    transition-property: opacity, transform;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-out;
   }
 
   &.active a:first-child {
@@ -212,14 +215,12 @@ ul {
   padding: 0.45rem 0.5rem;
   text-transform: uppercase;
   text-align: center;
-  //   find a better font for this
   font-family: "Roboto";
   font-weight: 800;
   cursor: pointer;
   border: 1px solid $highlight-color;
   color: $highlight-color;
-  z-index: 110;
-  display: initial;
+  z-index: 15;
 
   span:first-child {
     display: inline-block;
@@ -239,7 +240,6 @@ ul {
 }
 
 // ---------------------------- Reservations slider
-// issue with page scrolling behind both sliders
 .reserve__container {
   height: auto;
   width: 100vw;
@@ -249,6 +249,18 @@ ul {
   align-items: center;
   padding: 4rem 3rem;
   text-align: center;
+
+  button {
+    all: unset;
+    padding: 0.45rem 0.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Roboto";
+    font-weight: 800;
+    cursor: pointer;
+    border: 1px solid $highlight-color;
+    color: $highlight-color;
+  }
 }
 
 .reserve__slider {
@@ -256,7 +268,6 @@ ul {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   width: 0;
   height: 100vh;
   background-color: $background-color;
@@ -281,7 +292,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background-color: #333;
+  background-color: $background-color;
 
   button {
     all: unset;
@@ -290,13 +301,11 @@ ul {
     padding: 0.5rem 0.75rem;
     text-transform: uppercase;
     text-align: center;
-    //   find a better font for this
     font-family: "Roboto";
     font-weight: 200;
     cursor: pointer;
     border: 1px solid $highlight-color;
     color: $highlight-color;
-    z-index: 2;
     margin-bottom: 4rem;
   }
 }
@@ -323,7 +332,7 @@ ul {
     text-transform: uppercase;
     font-size: 1.2em;
     color: $highlight-color;
-    background-color: #000;
+    background-color: $dark;
     padding-top: 3rem;
     padding-bottom: 4rem;
     letter-spacing: 2px;
@@ -400,10 +409,7 @@ ul {
 // ------------------------------- #contact / form
 // todo - vars, cleanup, checkbox
 #contact {
-  // min-height: 86vh;
-  // min-height: 120vh;
-  background-color: #e1e1e1;
-  height: 100%;
+  background-color: $form-color;
   padding: 4rem 0 1rem 0;
 
   h2 {
@@ -411,9 +417,8 @@ ul {
     margin: 0;
     font-weight: 200;
     letter-spacing: 1px;
-    // padding-top: 3rem;
     text-transform: uppercase;
-    color: #333;
+    color: $background-color;
   }
 
   form {
@@ -424,8 +429,12 @@ ul {
     padding: 2rem;
   }
 
-  input,
-  textarea {
+  div {
+    border-bottom: 1px solid #333;
+    text-align: center;
+  }
+
+  input {
     display: block;
     width: 100%;
     padding: 0.75rem;
@@ -434,9 +443,7 @@ ul {
     background-color: unset;
 
     &[type="checkbox"] {
-      // display: unset;
       width: unset;
-      // border: 1px solid red;
       margin-right: 0.75rem;
     }
   }
@@ -444,20 +451,18 @@ ul {
   textarea {
     // test performance vs a repeating image
     // https://stackoverflow.com/questions/9468153/textarea-with-horizontal-rule
+    width: 100%;
+    border: none;
+    outline: none;
     background-attachment: local;
     background-image: linear-gradient(to right, #e1e1e1 10px, transparent 10px),
       linear-gradient(to left, #e1e1e1 10px, transparent 10px),
       repeating-linear-gradient(
-        // white,
-          #e1e1e1,
-        // white 30px,
-          #e1e1e1 30px,
-        // #ccc 30px,
-          #000 30px,
-        //  #ccc 31px,
-          #000 31px,
-        // white 31px
-          #e1e1e1 31px
+        #e1e1e1,
+        #e1e1e1 30px,
+        #000 30px,
+        #000 31px,
+        #e1e1e1 31px
       );
     line-height: 31px;
     padding: 8px 10px;
@@ -465,29 +470,20 @@ ul {
 
     // -webkit-writing-mode: horizontal-tb !important;
     // text-rendering: auto;
-    // letter-spacing: normal;
-    // word-spacing: normal;
     // text-indent: 0px;
     // text-shadow: none;
     // text-align: start;
     // -webkit-rtl-ordering: logical;
-    // cursor: text;
     // white-space: pre-wrap;
     // overflow-wrap: break-word;
     // font: 400 13.3333px Arial;
   }
 
-  .signup {
+  .opt-in__container {
     font-size: 0.9rem;
     display: flex;
     align-items: flex-start;
     border: none;
-  }
-
-  div {
-    border-bottom: 1px solid #333;
-    // width: 45%;
-    text-align: center;
   }
 
   button {
@@ -498,14 +494,11 @@ ul {
     padding: 0.45rem 0rem;
     text-transform: uppercase;
     text-align: center;
-    //   find a better font for this
     font-family: "Roboto";
     font-weight: 100;
     cursor: pointer;
-    border: 1px solid #333;
-    color: #333;
-    z-index: 110;
-    display: initial;
+    border: 1px solid $background-color;
+    color: $background-color;
   }
 }
 
@@ -518,6 +511,7 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  align-content: center;
   text-align: center;
   text-transform: uppercase;
   font-weight: 100;

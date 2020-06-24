@@ -51,10 +51,10 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #000;
+  background-color: #333;
   height: 14vh;
   padding: 1rem;
-  z-index: 10;
+  z-index: 5;
 }
 
 @media (min-width: 600px) {
@@ -72,13 +72,13 @@ ul {
   padding: 1.5rem 0.8rem;
   margin-left: 0.5rem;
   cursor: pointer;
-  z-index: 10;
+  z-index: 15;
 }
 
 .nav__hamburger {
   width: 25px;
   height: 2px;
-  background-color: #fff;
+  background-color: #ebebd3;
   position: relative;
   -webkit-transition: -webkit-transform 100ms ease-out;
   transition: -webkit-transform 100ms ease-out;
@@ -134,7 +134,7 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #333;
   -webkit-transition: width 0.3s ease-in;
   transition: width 0.3s ease-in;
 }
@@ -144,7 +144,7 @@ ul {
 }
 
 .nav__slider a {
-  display: block;
+  display: inline-block;
   opacity: 0;
   font-size: 3em;
   padding: 1rem;
@@ -152,16 +152,6 @@ ul {
   text-decoration: none;
   -webkit-transform: translateX(-100px);
           transform: translateX(-100px);
-  -webkit-transition: -webkit-transform 0.3s ease-in;
-  transition: -webkit-transform 0.3s ease-in;
-  transition: transform 0.3s ease-in;
-  transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in;
-}
-
-.nav__slider.active a {
-  opacity: 1;
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
   -webkit-transition-property: opacity, -webkit-transform;
   transition-property: opacity, -webkit-transform;
   transition-property: opacity, transform;
@@ -170,6 +160,12 @@ ul {
           transition-duration: 0.5s;
   -webkit-transition-timing-function: ease-out;
           transition-timing-function: ease-out;
+}
+
+.nav__slider.active a {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .nav__slider.active a:first-child {
@@ -208,7 +204,7 @@ ul {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: #333;
     -webkit-transition: width 0.3s ease-in;
     transition: width 0.3s ease-in;
   }
@@ -231,8 +227,7 @@ ul {
   cursor: pointer;
   border: 1px solid #ebebd3;
   color: #ebebd3;
-  z-index: 110;
-  display: initial;
+  z-index: 15;
 }
 
 .reserve__btn span:first-child {
@@ -271,15 +266,26 @@ ul {
   text-align: center;
 }
 
+.reserve__container button {
+  all: unset;
+  padding: 0.45rem 0.5rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Roboto";
+  font-weight: 800;
+  cursor: pointer;
+  border: 1px solid #ebebd3;
+  color: #ebebd3;
+}
+
 .reserve__slider {
   color: #ebebd3;
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   width: 0;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #333;
   overflow: auto;
   -webkit-transition: width 0.3s ease-in;
   transition: width 0.3s ease-in;
@@ -321,7 +327,6 @@ ul {
   cursor: pointer;
   border: 1px solid #ebebd3;
   color: #ebebd3;
-  z-index: 2;
   margin-bottom: 4rem;
 }
 
@@ -441,7 +446,6 @@ ul {
 
 #contact {
   background-color: #e1e1e1;
-  height: 100%;
   padding: 4rem 0 1rem 0;
 }
 
@@ -464,8 +468,12 @@ ul {
   padding: 2rem;
 }
 
-#contact input,
-#contact textarea {
+#contact div {
+  border-bottom: 1px solid #333;
+  text-align: center;
+}
+
+#contact input {
   display: block;
   width: 100%;
   padding: 0.75rem;
@@ -474,13 +482,15 @@ ul {
   background-color: unset;
 }
 
-#contact input[type="checkbox"],
-#contact textarea[type="checkbox"] {
+#contact input[type="checkbox"] {
   width: unset;
   margin-right: 0.75rem;
 }
 
 #contact textarea {
+  width: 100%;
+  border: none;
+  outline: none;
   background-attachment: local;
   background-image: linear-gradient(to right, #e1e1e1 10px, transparent 10px), linear-gradient(to left, #e1e1e1 10px, transparent 10px), repeating-linear-gradient(#e1e1e1, #e1e1e1 30px, #000 30px, #000 31px, #e1e1e1 31px);
   line-height: 31px;
@@ -488,7 +498,7 @@ ul {
   resize: vertical;
 }
 
-#contact .signup {
+#contact .opt-in__container {
   font-size: 0.9rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -497,11 +507,6 @@ ul {
       -ms-flex-align: start;
           align-items: flex-start;
   border: none;
-}
-
-#contact div {
-  border-bottom: 1px solid #333;
-  text-align: center;
 }
 
 #contact button {
@@ -518,8 +523,6 @@ ul {
   cursor: pointer;
   border: 1px solid #333;
   color: #333;
-  z-index: 110;
-  display: initial;
 }
 
 footer {
@@ -539,6 +542,8 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   text-align: center;
   text-transform: uppercase;
   font-weight: 100;
